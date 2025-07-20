@@ -11,7 +11,7 @@ def rename_files_by_modified_date(directory):
     for file in path.iterdir():
         if file.is_file():
             mod_time = file.stat().st_mtime
-            timestamp = time.strftime('%Y%m%d-%H%M%S', time.localtime(mod_time))
+            timestamp = time.strftime('%Y%m%d_%H%M%S', time.localtime(mod_time))
             new_name = f"{timestamp}{file.suffix}"
             new_path = file.with_name(new_name)
 
