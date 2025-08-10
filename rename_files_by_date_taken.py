@@ -9,7 +9,7 @@ from win32com.propsys import propsys, pscon
 def get_date_taken(filename: Path):
     ext = filename.suffix.lower()
 
-    if ext in ('.jpg', '.jpeg'):
+    if ext in ('.jpg', '.jpeg', '.heic'):
         with open(filename, 'rb') as image:
             exif = exifread.process_file(image, stop_tag="EXIF DateTimeOriginal", details=False)
             if "EXIF DateTimeOriginal" in exif:
